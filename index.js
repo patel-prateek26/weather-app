@@ -6,8 +6,12 @@ const figlet = require('figlet');
 const { logErrors, unhandledErrorHandler } = require('./error-handlers/error-handlers');
 const app = express();
 const routes = require('./handler');
+const cors = require('cors');
 const port = 8080;
 
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', routes());

@@ -4,6 +4,7 @@ const getWeatherDetails = (location, days) => {
     return callWeatherApi(location, days)
     .then(data => {
         const location = {
+            name: data.location.name,
             lat: data.location.lat,
             lon: data.location.lon
         }
